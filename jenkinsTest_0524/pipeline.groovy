@@ -64,7 +64,7 @@ pipeline {
 
 	success {
 	     echo "Build and test succeeded!"
-             mail to: 'leejiyoon223@naver.com',
+             mail to: 'leejiyoon223qwert@gmail.com',
              subject: "Build Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
              body: "Build #${env.BUILD_NUMBER} was successful.\nJenkins"
    	}
