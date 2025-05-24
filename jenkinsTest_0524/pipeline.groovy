@@ -3,9 +3,9 @@ pipeline {
 
     environment {
         JUNIT_JAR_URL = 'https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.7.1/junit-platform-console-standalone-1.7.1.jar'
-        JUNIT_JAR_PATH = 'lib/junit.jar'
-        CLASS_DIR = 'bin'
-        REPORT_DIR = 'test-reports'
+        JUNIT_JAR_PATH = 'jenkinsTest_0524/lib/junit.jar'
+	    CLASS_DIR = 'jenkinsTest_0524/bin'
+	    REPORT_DIR = 'jenkinsTest_0524/test-reports'
     }
 
     stages {
@@ -18,11 +18,11 @@ pipeline {
         stage('Prepare') {
             steps {
                 sh '''
-                    mkdir -p ${CLASS_DIR}
-                    mkdir -p ${REPORT_DIR}
-                    mkdir -p lib
-                    echo "[+] Downloading JUnit JAR..."
-                    curl -L -o ${JUNIT_JAR_PATH} ${JUNIT_JAR_URL}
+                    mkdir -p jenkinsTest_0524/bin
+		            mkdir -p jenkinsTest_0524/test-reports
+		            mkdir -p jenkinsTest_0524/lib
+		            echo "[+] Downloading JUnit JAR..."
+		            curl -L -o jenkinsTest_0524/lib/junit.jar ${JUNIT_JAR_URL}
                 '''
             }
         }
@@ -31,7 +31,7 @@ pipeline {
             steps {
                 sh '''
                     echo "[+] Compiling source files..."
-                    find src -name "*.java" > sources.txt
+                    find jenkinsTest_0524/src -name "*.java" > sources.txt
                     javac -encoding UTF-8 -d ${CLASS_DIR} -cp ${JUNIT_JAR_PATH} @sources.txt
                 '''
             }
