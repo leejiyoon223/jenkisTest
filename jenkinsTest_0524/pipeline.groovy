@@ -3,9 +3,9 @@ pipeline {
 
     environment {
         JUNIT_JAR_URL = 'https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.7.1/junit-platform-console-standalone-1.7.1.jar'
-        JUNIT_JAR_PATH = 'lib/junit.jar'
-        CLASS_DIR = 'bin'
-        REPORT_DIR = 'test-reports'
+        JUNIT_JAR_PATH = 'jenkinsTest_0524/lib/junit.jar'
+        CLASS_DIR = 'jenkinsTest_0524/bin'
+        REPORT_DIR = 'jenkinsTest_0524/test-reports'
     }
 
     stages {
