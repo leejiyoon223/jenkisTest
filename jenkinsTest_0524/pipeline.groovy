@@ -18,11 +18,11 @@ pipeline {
         stage('Prepare') {
             steps {
                 sh '''
-                    mkdir -p ${CLASS_DIR}
-                    mkdir -p ${REPORT_DIR}
-                    mkdir -p lib
+                    mkdir -p jenkinsTest_0524/bin
+                    mkdir -p jenkinsTest_0524/test-reports
+                    mkdir -p jenkinsTest_0524/lib
                     echo "[+] Downloading JUnit JAR..."
-                    curl -L -o ${JUNIT_JAR_PATH} ${JUNIT_JAR_URL}
+                    curl -L -o jenkinsTest_0524/lib/junit.jar ${JUNIT_JAR_URL}
                 '''
             }
         }
