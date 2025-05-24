@@ -62,6 +62,12 @@ pipeline {
             archiveArtifacts artifacts: "${REPORT_DIR}/**/*", allowEmptyArchive: true
         }
 
+	success {
+        mail to: 'leejiyoon223qwert@gmail.com',
+             subject: "Build Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+             body: "Build #${env.BUILD_NUMBER} was successful.\nJenkins"
+   	}
+
         failure {
             echo "Build or test failed!"
         }
