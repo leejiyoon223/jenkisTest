@@ -62,15 +62,15 @@ pipeline {
             archiveArtifacts artifacts: "${REPORT_DIR}/**/*", allowEmptyArchive: true
         }
 
+	success {
+	     echo "Build and test succeeded!"
+             mail to: 'leejiyoon223qwert@gmail.com',
+             subject: "Build Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+             body: "Build #${env.BUILD_NUMBER} was successful.\nJenkins"
+   	}
+
         failure {
             echo "Build or test failed!"
-        }
 
-        success {
-	        echo "Build and test succeeded!"
-	        mail to: 'leejiyoon223@naver.com',
-	             subject: "빌드 성공: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-	             body: "Jenkins 빌드가 성공적으로 완료되었습니다.\n자세한 내용은 Jenkins 콘솔 출력을 확인하세요."
-	    }
     }
 }
